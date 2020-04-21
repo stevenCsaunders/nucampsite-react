@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Navbar, NavbarBrand } from 'reactstrap';
 
-function App() {
+class App extends Component {
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
         <Navbar dark color="primary">
           <div className="container">
             <NavbarBrand href="/" >
@@ -13,9 +13,9 @@ function App() {
             </NavbarBrand>
           </div>
         </Navbar>
-      </header>
     </div>
   );
+  }
 }
 
 export default App;
