@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
+import Directory from './components/DirectoryCompnent'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
             </NavbarBrand>
           </div>
         </Navbar>
+        <Directory />
     </div>
   );
   }
