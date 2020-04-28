@@ -9,7 +9,7 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
+                text: "What a view!",
                 author: "Tinus Lorvaldes",
                 date: "2018-10-25T16:30Z"
             },
@@ -30,7 +30,7 @@ export const CAMPSITES = [
             {
                 id: 3,
                 rating: 5, 
-                text: "A wonderful place to reconnect with nature.",
+                text: "A wonderful place.",
                 author: "Jordan Runn",
                 date: "2019-08-04T20:11Z"
             },
@@ -53,7 +53,7 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
+                text: "Magnificent view!",
                 author: "Tinus Lorvaldes",
                 date: "2018-10-25T16:30Z"
             },
