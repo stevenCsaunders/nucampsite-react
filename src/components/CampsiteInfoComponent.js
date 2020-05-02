@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class CampsiteInfo extends Component {
 
@@ -42,8 +42,18 @@ class CampsiteInfo extends Component {
             return (
                 <div className="container">
                     <div className="row">
+                        <div className="col">
+                            <Breadcrumb>
+                                <BreadcrumbItem><Link to="/directory">Directory</Link></BreadcrumbItem>
+                                <BreadcrumbItem active>{this.props.campsite.name}</BreadcrumbItem>
+                            </Breadcrumb>
+                            <h2>Contact Us</h2>
+                            <hr />
+                        </div>
+                    </div>
+                    <div className="row">
                         {this.renderCampsite(this.props.campsite)}
-                        {this.renderComments(this.props.campsite.comments)}
+                        {this.renderComments(this.props.comments)}
                     </div>
                 </div>
             )
