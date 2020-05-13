@@ -18,6 +18,8 @@ import {
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { required, maxLength, minLength } from './ContactComponent';
 import { Link } from "react-router-dom";
+import { Loading } from './LoadingComponent';
+
 
 class CommentForm extends Component {
   constructor(props) {
@@ -170,7 +172,27 @@ function RenderComments({ comments }) {
 }
 
 const CampsiteInfo = (props) => {
-  if (props.campsite) {
+  if (props.isLoading) {
+    return (
+        <div className="container">
+            <div className="row">
+                <Loading />
+            </div>
+        </div>
+    );
+}
+if (props.errMess) {
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        </div>
+    );
+}
+if (props.campsite) {
     return (
       <div className="container">
         <div className="row">
