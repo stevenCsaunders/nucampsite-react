@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
+
 function Home(props) {
     return (
         <div className="container">
@@ -17,10 +18,10 @@ function Home(props) {
                     </div>
                     <div className="col-md m-1">
                         <RenderCard
-                            item = { props.promotion }
-                        isLoading={props.promotionLoading}
+                            item={props.promotion}
+                            isLoading={props.promotionLoading}
                             errMess={props.promotionErrMess}
-                         />
+                        />
                     </div>
                     <div className="col-md m-1">
                         <RenderCard item={props.partner} />
