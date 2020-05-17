@@ -40,8 +40,7 @@ class Contact extends Component {
   }
 
   handleSubmit(values) {
-    console.log('Current State is: ' + JSON.stringify(values));
-    alert('Current State is: ' + JSON.stringify(values));
+    this.props.postFeedback(values);   //postFeedback takes form values and  passes them into the action cretor
     this.props.resetFeedbackForm();
 }
   render() {

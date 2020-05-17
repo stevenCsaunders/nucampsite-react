@@ -186,3 +186,41 @@ export const addPartners = partners => ({
     type: ActionTypes.ADD_PARTNERS,
     payload: partners
 });
+
+export const postFeedback = feedback => dispatch => {    //Action cretor  (the extra arrow => indicates using Tunk Middleware)
+    const newFeedback = {
+        firstname: feedback.firstName,
+        lastname: feedback.lastName,
+        telnum: feedback.phoneNum,
+        email: feedback.email,
+        agree: feedback.agree,
+        contactType: feedback.contactType,
+        message: feedback.feedback,
+    }
+    newFeedback.date = new Date().toString();
+
+    return fetch(baseUrl + 'feedback', {    //Using POST tho send info to the server
+        method: "POST",
+        body: JSON.stringify(newFeedback),
+        headers: {
+            "Content-Type": "application/json"  //To let the server know the incoming info is JSON
+        }
+    })
+        .then(response => {        // Check for a resonse from the server
+            if (response.ok) {    //Retruns a promise and checks to make sure the returned status code is between 200-299
+                return response;
+            } else {                //If response above 299 throw an error and give status code and text error
+                const error = new Error(`Error ${response.status}: ${response.statusText}`);
+                error.response = response;
+                throw error;
+            }
+        },
+            error => { throw error; }   //If there is no response throw an error
+        )
+        .then(response => response.json())
+        .then(response => alert(`Thank you for your feedback --> ${JSON.stringify(response)}`))   //Alert user with message and newly added object
+        .catch(error => {
+            console.log('post comment', error.message);
+            alert('Your comment could not be posted\nError: ' + error.message);
+        });
+}
